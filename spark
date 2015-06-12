@@ -15,21 +15,25 @@ each task`s update to accumulator is guaranteed to be applied only once for acti
 sc.parallelize(data, number_of_partitions) - creates RDD
 sc.textFile("file", number_of_partitions) - creates RDD from file
 
-transformations:
+transformations:    # transformations are evaluated lazily
     map(func)
+    flatMap(func)
     filter(func)
     distinc()
-    flatMap(func)
     reduceByKey(func)
+    groupByKey()    # prefer using reduceByKey transformation instead because it combines reults on partitions before shuffling them
     sortByKey()
-    groupByKey()
 
 actions:
-    reduce(func)
-    take(n)
     collect()
-    takeOrdered(n, key=func)
+    reduce(func)    # func should be commutative and associative
     count()
+    countByValue()  # returns a dictionary that maps values to counts
     forEach(func)
+    take(n)
+    takeOrdered(n, key=func)    # returns the list sorted in ascending order
+    first()
+    top(n)  # similar to takeOrdered() except that it returns the list in descending order
 
-cache() - save, don't recompute again
+cache()     - caches RDDs;  if Spark runs out of memory, it will delete the least recently used (LRU) RDD first
+unpersist() - inform Spark that you no longer need the RDD in memory
