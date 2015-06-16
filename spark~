@@ -41,4 +41,4 @@ unpersist() - inform Spark that you no longer need the RDD in memory
 sc.createDataFrame(pandas_df)   - create Spark DataFrame from Pandas
 spark_df.toPandas()             - convert Spark DataFrame to Pandas
 
-rdd joins [join(anotherRdd), leftOuterJoin(anotherRdd), rightOuterJoin(anotherRdd), fullOuterJoin(anotherRdd)] return pairs of elements with matching keys
+rdd joins: join(anotherRdd), leftOuterJoin(anotherRdd), rightOuterJoin(anotherRdd), fullOuterJoin(anotherRdd)
