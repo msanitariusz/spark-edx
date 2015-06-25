@@ -28,12 +28,13 @@ actions:
     collect()
     reduce(func)    # func should be commutative and associative
     count()
-    countByValue()  # returns a dictionary that maps values to counts
+    countByValue(), countByKey()
     forEach(func)
     take(n)
     takeOrdered(n, key=func)    # returns the list sorted in ascending order
     first()
     top(n)  # similar to takeOrdered() except that it returns the list in descending order
+    min(), max()
 
 cache()     - caches RDDs;  if Spark runs out of memory, it will delete the least recently used (LRU) RDD first
 unpersist() - inform Spark that you no longer need the RDD in memory
