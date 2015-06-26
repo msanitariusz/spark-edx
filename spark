@@ -25,7 +25,7 @@ transformations:    # transformations are evaluated lazily
     sortByKey()
 
 actions:
-    collect()
+    collect(), collectAsMap()
     reduce(func)    # func should be commutative and associative
     count()
     countByValue(), countByKey()
