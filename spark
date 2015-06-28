@@ -22,7 +22,7 @@ transformations:    # transformations are evaluated lazily
     distinc()
     reduceByKey(func)
     groupByKey()    # prefer using reduceByKey transformation instead because it combines reults on partitions before shuffling them
-    sortByKey()
+    sortBy(), sortByKey()
 
 actions:
     collect(), collectAsMap()
